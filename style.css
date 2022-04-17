@@ -114,3 +114,7 @@ button:hover {
 .bottom {
   margin-bottom: 30px;
 }
+.homa-indicator {
+  margin-top: 10px;
+  font-weight: 700;
+}

@@ -14,14 +14,12 @@ const insulinValue = document.querySelector('#insulin');
 const glucoseValue = document.querySelector('#glucose');
 const insulinUnit = document.querySelector('#insulin-unit');
 const glucoseUnit = document.querySelector('#glucose-unit');
-
 const btnReset = document.querySelector('.reset');
 const btnCount = document.querySelector('.count');
 const error = document.querySelector('.error');
 const resultPanel = document.querySelector('.result');
 const homaResult = document.querySelector('.homa-result');
-
-// let HOMA = ((insulinValue.value * glucoseValue.value )) / 22.5;
+const homaIndicator = document.querySelector('.homa-indicator');
 let HOMA;
 const calculate = () => {
     
@@ -31,38 +29,52 @@ const calculate = () => {
     }
     if (insulinUnit.selectedIndex == '1' && glucoseUnit.selectedIndex == '1' ) {
         HOMA = (((insulinValue.value * (glucoseValue.value / 18.02))) / 22.5).toFixed(2);   
-        homaResult.innerHTML = `${HOMA}`; 
+         
       
     }
     if (insulinUnit.selectedIndex == '1' && glucoseUnit.selectedIndex == '2') {
         HOMA = (((insulinValue.value * glucoseValue.value)) / 22.5).toFixed(2);   
-        homaResult.innerHTML = `${HOMA}`; 
+        
     }
     if (insulinUnit.selectedIndex == '2' && glucoseUnit.selectedIndex == '1' ) {
         HOMA = ((((insulinValue.value * 1000) * (glucoseValue.value / 18.02))) / 22.5).toFixed(2);   
-        homaResult.innerHTML = `${HOMA}`;
+       
     }
     if (insulinUnit.selectedIndex == '2' && glucoseUnit.selectedIndex == '2') {
         HOMA = ((((insulinValue.value * 1000) * glucoseValue.value)) / 22.5).toFixed(2);   
-        homaResult.innerHTML = `${HOMA}`; 
+        
     }
 
     if (insulinUnit.selectedIndex == '3' && glucoseUnit.selectedIndex == '1') {
         HOMA = (((insulinValue.value / 6.945) * (glucoseValue.value / 18.02)) / 22.5).toFixed(2);
-        homaResult.innerHTML = `${HOMA}`;
+        
     }
     if (insulinUnit.selectedIndex == '3' && glucoseUnit.selectedIndex == '2' ) {
         HOMA = ((((insulinValue.value / 6.945) * glucoseValue.value)) / 22.5).toFixed(2);   
-        homaResult.innerHTML = `${HOMA}`; 
+        
     }
 
     else {
         resultPanel.style.display = 'block';
         homaResult.innerHTML = `${HOMA}`; 
-        
+        const homaIndicatorResult = () => {
+            if (HOMA > 2) {
+                homaIndicator.style.color = 'crimson'
+                homaIndicator.innerHTML = `Twój wynik jest większy od 2. Może oznaczać insulinooporność.`;
+            } else {
+                homaIndicator.style.color = 'green'
+                homaIndicator.innerHTML = `Twój wynik jest prawidłowy.`;
+            }
+        }
+        homaIndicatorResult()
     }
    
     }
+
+
+    
+
+
 
 const reset = () => {
     error.style.display = 'none';
@@ -70,7 +82,8 @@ const reset = () => {
     insulinValue.value = ''
     glucoseValue.value = ''
     glucoseUnit.selectedIndex = '1'
-    insulinUnit.selectedIndex ='1'
+    insulinUnit.selectedIndex = '1'
+    homaIndicator.innerHTML = ''
 }
 
     btnCount.addEventListener('click', calculate);
