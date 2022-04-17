@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/5456b20e02.js" crossorigin="anonymous"></script>
+    <link href="style.css" rel="stylesheet" />
+    <title>Kalkulator HOMA-IR</title>
+  </head>
+  <body >
+
+    <div class="wrapper">
+      <div class="top">
+        <h1><i class="fa-solid fa-calculator"></i>Oblicz swój wskaźnik HOMA</h1>
+         <p>(Homeostatic Model Assessment)</p>   
+      </div>
+        
+      <div class="calculate-panel">
+
+        <div class="insulin-panel">
+          <p class="insulin">Insulina:</p>
+          <input type="number" id="insulin" placeholder="Uzupełnij">
+
+          <select id="insulin-unit">
+            <option value="0" disabled>-wybierz jednostki-</option>
+            <option value="1" selected>µU/mL, mU/L</option>
+            <option value="2" >mIU/ml</option>
+            <option value="3">pmol/l</option>
+            </select>
+        </div>
+
+        <div class="glucose-panel">
+          <p class="glucose">Glukoza:</p>
+          <input type="number" id="glucose" placeholder="Uzupełnij">
+
+          <select id="glucose-unit">
+            <option value="0" disabled >-wybierz jednostki-</option>
+            <option value="1" selected>mg/dl</option> 
+            <option value="2" >mmol/l</option>
+           
+          </select>
+        </div>
+      </div>
+      <div class="bottom">
+        <button class="reset"><i class="fa fa-refresh" aria-hidden="true"></i>Reset</button>
+
+        <button class="count"><i class="fa-solid fa-cash-register"></i>Oblicz</button>
+  
+        <p class="error">Wpisz obie wartości dla insuliny oraz glukozy w powyższe pola!</p>
+
+        <div class="result">
+        <p class="calculated-homa">Twój wynik <span>HOMA</span>: <span class="homa-result"></span></p>
+
+</div>
+
+      </div>
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
