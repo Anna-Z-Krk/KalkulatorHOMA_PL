@@ -1,4 +1,4 @@
-# HOMA
+# HOMA-IR CALCULATOR
 HOMA calculator to calculate if there is insulin resistance
 Created to help with different units.
 
