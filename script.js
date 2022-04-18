@@ -23,19 +23,8 @@ const homaIndicator = document.querySelector('.homa-indicator');
 let HOMA;
 const calculate = () => {
     
-    if (insulinValue.value === '' || glucoseValue.value === '') {
-        error.style.display = 'block'
-        // homaResult.style.display = 'none';
-    }
-    if (insulinUnit.selectedIndex == '1' && glucoseUnit.selectedIndex == '1' ) {
-        HOMA = (((insulinValue.value * (glucoseValue.value / 18.02))) / 22.5).toFixed(2);   
-         
-      
-    }
-    if (insulinUnit.selectedIndex == '1' && glucoseUnit.selectedIndex == '2') {
-        HOMA = (((insulinValue.value * glucoseValue.value)) / 22.5).toFixed(2);   
-        
-    }
+
+
     if (insulinUnit.selectedIndex == '2' && glucoseUnit.selectedIndex == '1' ) {
         HOMA = ((((insulinValue.value * 1000) * (glucoseValue.value / 18.02))) / 22.5).toFixed(2);   
        
@@ -55,6 +44,7 @@ const calculate = () => {
     }
 
     else {
+        
         resultPanel.style.display = 'block';
         homaResult.innerHTML = `${HOMA}`; 
         const homaIndicatorResult = () => {
