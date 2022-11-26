@@ -1,5 +1,5 @@
 # Kalkulator HOMA-IR
-**HOMA calculator to calculate if there is insulin resistance - PL.**\
+**HOMA calculator to calculate if there is insulin resistance - PL.**
 
 
 You can view it here: https://anna-z-krk.github.io/kalkulator-HOMA-PL/
